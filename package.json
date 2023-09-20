@@ -1,0 +1,26 @@
+{
+  "name": "fancy-ddd-neusta",
+  "version": "1.0.0",
+  "description": "Developing a fancy ddd project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhinte/fancy-ddd-neusta.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhinte/fancy-ddd-neusta/issues"
+  },
+  "homepage": "https://github.com/mhinte/fancy-ddd-neusta#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1"
+  }
+}
