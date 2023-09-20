@@ -4,45 +4,31 @@ import {Person} from "./Person";
 
 export class Raum {
 
-
     public id: string;
-
     public nummer: string;
-
     public name: string;
-
     private personen: Array<Person>;
 
-
     constructor(nummer: string, name: string) {
-
         if (!this.istNummerGueltig(nummer)) {
-
             return null
-
         }
 
         this.id = uuid()
-
         this.personen = []
-
         this.name = name
-
         this.nummer = nummer
-
     }
 
     fuegePersonHinzu(person: Person) {
-
-        this.personen.push(person)
-
+        if (person !== null) {
+            this.personen.push(person)
+            return true;
+        }
+        return false;
     }
-
 
     private istNummerGueltig(nummer: string): boolean {
-
         return nummer.length === 4 && !!isNaN(+nummer)
-
     }
-
 }

@@ -1,16 +1,16 @@
 import {Raum} from "../domain/Raum";
 import {RaumRepository} from "../domain/RaumRepository";
 
-export class RaumHinzufuegen{
+export class RaumHinzufuegen {
 
-    raumRepository : RaumRepository
+    raumRepository: RaumRepository
 
-    constructor(raumRepository: RaumRepository)
-    {
+    constructor(raumRepository: RaumRepository) {
         this.raumRepository = raumRepository
     }
-    async ausführen(raum: Raum): Promise<Raum> {
-        const istRaumnummerEindeutig = await this.istRaumnummerEindeutig(raum.nummer)
+
+    ausführen(raum: Raum): Raum {
+        const istRaumnummerEindeutig = this.istRaumnummerEindeutig(raum.nummer)
         if (istRaumnummerEindeutig) {
             throw new Error(`Ein Raum mit der Nummer ${raum.nummer} existiert bereits.`)
         }
@@ -18,8 +18,8 @@ export class RaumHinzufuegen{
     }
 
 
-    private async istRaumnummerEindeutig(nummer: string): Promise<boolean> {
-        const raum = await this.raumRepository.findeRaumNummer(nummer)
-        return !raum
+    private istRaumnummerEindeutig(nummer: string): boolean {
+        const raum = this.raumRepository.findeRaumNummer(nummer);
+        return !raum;
     }
 }
