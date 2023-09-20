@@ -6,6 +6,6 @@ Developing a fancy ddd project
 
 ## How to start
 ```
-npx tsc
-node dist/app.js
+npm start
 ```
+Afterwards navigate to localhost:3000/api/hello.
