@@ -4,6 +4,6 @@ export interface RaumRepository{
 
     finde(id: string): Raum;
     findeRaumNummer(nummer: string): Raum;
-    findeRaumPerson(id: string): Raum;
+    findeRaumMitPerson(id: string): Raum;
     legeAn(Raum): Raum;
 }
