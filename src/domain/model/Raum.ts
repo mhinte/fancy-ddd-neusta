@@ -29,6 +29,6 @@ export class Raum {
     }
 
     private istNummerGueltig(nummer: string): boolean {
-        return nummer.length === 4 && !!isNaN(+nummer)
+        return nummer.length === 4 && !isNaN(+nummer)
     }
 }

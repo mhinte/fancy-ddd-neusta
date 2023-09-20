@@ -1,20 +1,23 @@
-import {Raum} from "../domain/Raum";
-import {RaumRepository} from "../domain/RaumRepository";
-import {Person} from "../domain/Person";
+import {RaumRepository} from "../../domain/model/RaumRepository";
+import {Raum} from "../../domain/model/Raum";
+import {Person} from "../../domain/model/Person";
 
-export class PersonHinzufuegen{
+export class PersonHinzufuegen {
 
-    raumRepository : RaumRepository
+    raumRepository: RaumRepository
 
-    constructor(raumRepository: RaumRepository)
-    {
+    constructor(raumRepository: RaumRepository) {
         this.raumRepository = raumRepository
     }
-    ausführen(raum: Raum, person: Person): boolean {
+
+    ausfuehren(raumNummer: string, person: Person): boolean {
         const istPersonInRaum = this.istInRaum(person.id)
         if (istPersonInRaum) {
             throw new Error(`Die Person mit der Id ${person.id} ist bereits in einem Raum.`)
         }
+
+        const raum: Raum = this.raumRepository.findeRaumMitNummer(raumNummer)
+
         return raum.fuegePersonHinzu(person)
     }
 

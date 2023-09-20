@@ -1,5 +1,5 @@
-import { Raum } from "../domain/Raum";
-import { RaumRepository } from "../domain/RaumRepository";
+import {Raum} from "../domain/model/Raum";
+import {RaumRepository} from "../domain/model/RaumRepository";
 
 const raeume: Raum[] = []
 
@@ -7,12 +7,15 @@ export class RaumRepositoryImpl implements RaumRepository {
     finde(id: string): Raum {
         return raeume.find(r => r.id === id)
     }
-    findeRaumNummer(nummer: string): Raum {
+
+    findeRaumMitNummer(nummer: string): Raum {
         return raeume.find(r => r.nummer === nummer)
     }
+
     findeRaumMitPerson(id: string): Raum {
         throw new Error("Method not implemented.");
     }
+
     legeAn(raum: Raum): Raum {
         raeume.push(raum)
         return raum

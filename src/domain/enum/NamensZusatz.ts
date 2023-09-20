@@ -1,5 +1,5 @@
 export enum NamensZusatz {
-    VON ='von',
+    VON = 'von',
     VAN = 'van',
     DE = 'de',
 }
