@@ -1,5 +1,5 @@
-import { NamensZusatz } from "./enum/NamensZusatz"
-import { v4 as uuid } from 'uuid';
+import {NamensZusatz} from "../enum/NamensZusatz"
+import {v4 as uuid} from 'uuid';
 
 export class Person {
     id: string
@@ -9,7 +9,7 @@ export class Person {
     benutzerName: string
 
     constructor(vorname: string, nachname: string, benutzerName: string, namensZusatz?: NamensZusatz) {
-        Object.apply(this, { vorname, nachname, benutzerName, namensZusatz })
+        Object.apply(this, {vorname, nachname, benutzerName, namensZusatz})
         this.id = uuid()
     }
 
