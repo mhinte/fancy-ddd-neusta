@@ -13,10 +13,9 @@ export class RaumHinzufuegenController {
         const raumNummer: string = req.body.raumNummer;
         const name: string = req.body.name;
 
-        const raum: Raum = new Raum(raumNummer, name)
+        const neuerRaum: Raum = new Raum(raumNummer, name)
+        const response: Raum = this.raumHinzufuegen.ausfuehren(neuerRaum)
 
-        this.raumHinzufuegen.ausfuehren(raum)
-
-        return res.json(raum).status(201);
+        return res.json(response).status(201);
     }
 }

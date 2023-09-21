@@ -1,21 +1,19 @@
 import {Request, Response} from 'express';
 import {PersonHinzufuegen} from "../../application/raum/PersonHinzufuegen";
 import {Person} from "../../domain/model/Person";
-import {PUT, route} from "awilix-express";
+import {POST, route} from "awilix-express";
 
-@route("/api/room/:id/person")
+@route("/api/person")
 export class PersonHinzufuegenController {
     constructor(private personHinzufuegen: PersonHinzufuegen) {
     }
 
-    @PUT()
+    @POST()
     public async invoke(req: Request, res: Response): Promise<Response | void> {
-        const id: string = req.params.id;
+        const neuePerson: Person = new Person(req.body.vorname, req.body.nachname, req.body.benutzerName, req.body.namensZusatz)
 
-        const person: Person = new Person(req.body.vorname, req.body.nachname, req.body.benutzerName, req.body.namensZusatz)
+        const response: Person = this.personHinzufuegen.ausfuehren(neuePerson);
 
-        this.personHinzufuegen.ausfuehren(id, person);
-
-        return res.json().status(201);
+        return res.json(response).status(201);
     }
 }
