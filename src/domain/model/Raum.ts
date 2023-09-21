@@ -31,6 +31,11 @@ export class Raum {
         return this.personen.map(person => person.gibKurzbeschreibung())
     }
 
+    hatPerson(id: string): boolean {
+        const index: number = this.personen.findIndex((person: Person) => person.id === id);
+        return index > 0;
+    }
+
     private istNummerGueltig(nummer: string): boolean {
         return nummer.length === 4 && !isNaN(+nummer)
     }

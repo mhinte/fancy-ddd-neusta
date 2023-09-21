@@ -13,7 +13,9 @@ export class RaumRepositoryImpl implements RaumRepository {
     }
 
     findeRaumMitPerson(id: string): Raum {
-        throw new Error("Method not implemented.");
+        return raeume.find((raum: Raum) => {
+            raum.hatPerson(id)
+        })
     }
 
     legeAn(raum: Raum): Raum {
