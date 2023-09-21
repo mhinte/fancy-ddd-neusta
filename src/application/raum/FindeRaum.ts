@@ -1,5 +1,5 @@
 import {RaumRepository} from "../../domain/model/RaumRepository";
-import {Raum} from "../../domain/model/Raum";
+import {Raum, RaumId} from "../../domain/model/Raum";
 
 export class FindeRaum {
 
@@ -9,7 +9,7 @@ export class FindeRaum {
         this.raumRepository = raumRepository
     }
 
-    ausfuehren(id: string): Raum {
+    ausfuehren(id: RaumId): Raum {
         return this.raumRepository.finde(id)
     }
 }

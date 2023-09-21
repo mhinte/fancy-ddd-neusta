@@ -1,32 +1,24 @@
-import {RaumRepository} from "../../domain/model/RaumRepository";
-import {Raum} from "../../domain/model/Raum";
-import {Person} from "../../domain/model/Person";
+import { PersonRepository } from "../../domain/model/PersonRepository";
+import { Person } from "../../domain/model/Person";
 
 export class PersonHinzufuegen {
 
-    raumRepository: RaumRepository
+    personRepository: PersonRepository
 
-    constructor(raumRepository: RaumRepository) {
-        this.raumRepository = raumRepository
+    constructor(personRepository: PersonRepository) {
+        this.personRepository = personRepository
     }
 
-    ausfuehren(id: string, person: Person): boolean {
-        const istPersonInRaum: boolean = this.istInRaum(person.id)
-        if (istPersonInRaum) {
-            throw new Error(`Die Person mit der Id ${person.id} ist bereits in einem Raum.`)
+    ausfuehren(person: Person): Person {
+        const istBenutzerNameEindeutig: boolean = this.istBenutzerNameEindeutig(person.benutzerName)
+        if (!istBenutzerNameEindeutig) {
+            throw new Error(`Eine Person mit dem Benutzernamen ${person.benutzerName} existiert bereits.`)
         }
-
-        const raum: Raum = this.raumRepository.finde(id)
-        if (!raum) {
-            throw new Error(`Der Raum existiert nicht.`)
-        }
-
-        return raum.fuegePersonHinzu(person)
+        return this.personRepository.legeAn(person)
     }
 
-
-    private istInRaum(id: string): boolean {
-        const raum: Raum = this.raumRepository.findeRaumMitPerson(id)
-        return !!raum;
+    private istBenutzerNameEindeutig(benutzerName: string): boolean {
+        const person: Person = this.personRepository.findeBenutzerName(benutzerName);
+        return !person;
     }
 }

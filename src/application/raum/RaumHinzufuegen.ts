@@ -1,5 +1,5 @@
 import {RaumRepository} from "../../domain/model/RaumRepository";
-import {Raum} from "../../domain/model/Raum";
+import {Raum, RaumNummer} from "../../domain/model/Raum";
 
 export class RaumHinzufuegen {
 
@@ -17,7 +17,7 @@ export class RaumHinzufuegen {
         return this.raumRepository.legeAn(raum)
     }
 
-    private istRaumnummerEindeutig(nummer: string): boolean {
+    private istRaumnummerEindeutig(nummer: RaumNummer): boolean {
         const raum: Raum = this.raumRepository.findeRaumMitNummer(nummer);
         return !raum;
     }

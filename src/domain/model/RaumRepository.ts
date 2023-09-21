@@ -1,11 +1,11 @@
-import {Raum} from "./Raum";
+import {PersonenId, Raum, RaumId, RaumNummer} from "./Raum";
 
 export interface RaumRepository {
-    finde(id: string): Raum;
+    finde(id: RaumId): Raum;
 
-    findeRaumMitNummer(nummer: string): Raum;
+    findeRaumMitNummer(nummer: RaumNummer): Raum;
 
-    findeRaumMitPerson(id: string): Raum;
+    findeRaumMitPerson(id: PersonenId): Raum;
 
     legeAn(raum: Raum): Raum;
 }

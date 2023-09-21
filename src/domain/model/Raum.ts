@@ -1,12 +1,11 @@
-import {v4 as uuid} from 'uuid';
-
+import { v4 as uuid } from 'uuid';
 
 export class Raum {
 
     public id: RaumId;
     public nummer: RaumNummer;
     public name: RaumName;
-    private personenIds: PersonenIds;
+    private personenIds: PersonenId[];
 
     constructor(nummer: string, name: string) {
         if (!this.istNummerGueltig(nummer)) {
@@ -16,52 +15,18 @@ export class Raum {
         this.id = new RaumId(uuid())
         this.name = new RaumName(name)
         this.nummer = new RaumNummer(nummer)
-        this.personenIds = new PersonenIds()
+        this.personenIds = []
     }
 
     private istNummerGueltig(nummer: string): boolean {
         return nummer.length === 4 && !isNaN(+nummer)
     }
-}
 
-class RaumId {
-    id: string
-
-    constructor(id: string) {
-        this.id = id;
-    }
-}
-
-
-class RaumNummer {
-    raumNummer: string;
-
-    constructor(raumNummer: string) {
-        this.raumNummer = raumNummer
-    }
-}
-
-class RaumName {
-    raumName: string;
-
-    constructor(raumName: string) {
-        this.raumName = raumName
-    }
-}
-
-class PersonenIds {
-    private personenIds: Array<string>;
-
-    constructor() {
-        this.personenIds = []
-    }
-
-
-    gibPersonenIds(): string[] {
+    gibPersonenIds(): PersonenId[] {
         return this.personenIds
     }
 
-    fuegePersonHinzu(personId: string) {
+    fuegePersonHinzu(personId: PersonenId) {
         if (personId !== null) {
             this.personenIds.push(personId)
             return true;
@@ -70,7 +35,40 @@ class PersonenIds {
     }
 
 
-    hatPerson(id: string): boolean {
+    hatPerson(id: PersonenId): boolean {
         return this.personenIds.includes(id)
+    }
+}
+
+export class RaumId {
+    id: string
+
+    constructor(id: string) {
+        this.id = id;
+    }
+}
+
+
+export class RaumNummer {
+    raumNummer: string;
+
+    constructor(raumNummer: string) {
+        this.raumNummer = raumNummer
+    }
+}
+
+export class RaumName {
+    raumName: string;
+
+    constructor(raumName: string) {
+        this.raumName = raumName
+    }
+}
+
+export class PersonenId {
+    id: string
+
+    constructor(id: string) {
+        this.id = id;
     }
 }

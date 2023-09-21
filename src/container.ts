@@ -2,7 +2,7 @@ import {asClass, createContainer} from "awilix";
 import {scopePerRequest} from "awilix-express";
 import {Application} from "express";
 import {RaumHinzufuegen} from "./application/raum/RaumHinzufuegen";
-import {PersonHinzufuegen} from "./application/raum/PersonHinzufuegen";
+import {PersonHinzufuegen} from "./application/raum/PersonZuRaumHinzufuegen";
 import {FindeRaum} from "./application/raum/FindeRaum";
 import {RaumRepositoryImpl} from "./infrastructure/RaumRepositoryImpl";
 
