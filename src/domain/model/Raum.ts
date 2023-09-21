@@ -1,5 +1,4 @@
 import {v4 as uuid} from 'uuid';
-
 import {Person} from "./Person";
 
 export class Raum {
@@ -26,6 +25,10 @@ export class Raum {
             return true;
         }
         return false;
+    }
+
+    gibPersonen(): string[] {
+        return this.personen.map(person => person.gibKurzbeschreibung())
     }
 
     private istNummerGueltig(nummer: string): boolean {
