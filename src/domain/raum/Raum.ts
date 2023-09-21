@@ -13,7 +13,7 @@ export class Raum {
             return null
         }
 
-        this.id = new RaumId(uuid())
+        this.id = new RaumId()
         this.name = new RaumName(name)
         this.nummer = new RaumNummer(nummer)
         this.personenIds = []
@@ -44,9 +44,8 @@ export class Raum {
 export class RaumId {
     id: string
 
-    constructor(id: string) {
-        // todo set uuid
-        this.id = id;
+    constructor(id?: string) {
+        this.id = id ? id : uuid();
     }
 }
 

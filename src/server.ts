@@ -6,7 +6,11 @@ const app: express.Application = express();
 app.use(express.json());
 loadContainer(app);
 app.use(loadControllers(
-    'infrastructure/controller/*.ts',
+    'infrastructure/raum/controller/*.ts',
+    {cwd: __dirname}
+));
+app.use(loadControllers(
+    'infrastructure/person/controller/*.ts',
     {cwd: __dirname}
 ));
 app.listen(3000, () => {
