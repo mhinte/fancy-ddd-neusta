@@ -9,7 +9,10 @@ export class Person {
     benutzerName: string
 
     constructor(vorname: string, nachname: string, benutzerName: string, namensZusatz?: NamensZusatz) {
-        Object.apply(this, {vorname, nachname, benutzerName, namensZusatz})
+        this.vorname = vorname
+        this.nachname = nachname
+        this.benutzerName = benutzerName
+        this.namensZusatz= namensZusatz
         this.id = uuid()
     }
 
