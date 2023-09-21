@@ -5,13 +5,12 @@ import {PersonenId} from "../../domain/person/Person";
 const raeume: Raum[] = []
 
 export class RaumRepositoryImpl implements RaumRepository {
-    finde(id: RaumId): Raum {
-        const raeumeList = raeume.find(r => r.id === id)
-        return raeumeList;
+    finde(raumId: RaumId): Raum {
+        return raeume.find(r => r.id.equals(raumId.value))
     }
 
-    findeRaumMitNummer(nummer: RaumNummer): Raum {
-        return raeume.find(r => r.nummer === nummer)
+    findeRaumMitNummer(raumNummer: RaumNummer): Raum {
+        return raeume.find((raum: Raum) => raum.nummer.equals(raumNummer.value))
     }
 
     findeRaumMitPerson(id: PersonenId): Raum {

@@ -4,11 +4,11 @@ import { PersonRepository } from "../../domain/person/PersonRepository";
 const personen: Person[] = []
 
 export class PersonRepositoryImpl implements PersonRepository {
-    finde(id: PersonenId): Person {
-        return personen.find(r => r.id === id)
+    finde(personenId: PersonenId): Person {
+        return personen.find((person: Person) => person.personenId.equals(personenId.value))
     }
     findeBenutzerName(benutzerName: PersonenBenutzername): Person {
-        return personen.find(r => r.benutzerName === benutzerName)
+        return personen.find((person: Person): boolean => person.benutzerName.equals(benutzerName))
     }
 
     legeAn(person: Person): Person {

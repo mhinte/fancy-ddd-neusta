@@ -1,5 +1,6 @@
-import { v4 as uuid } from 'uuid';
-import { PersonenId } from '../person/Person';
+import {v4 as uuid} from 'uuid';
+import {PersonenId} from '../person/Person';
+import {GenericValueObject} from "../common/GenericValueObject";
 
 export class Raum {
 
@@ -13,7 +14,7 @@ export class Raum {
             return null
         }
 
-        this.id = new RaumId()
+        this.id = new RaumId(uuid())
         this.name = new RaumName(name)
         this.nummer = new RaumNummer(nummer)
         this.personenIds = []
@@ -41,27 +42,13 @@ export class Raum {
     }
 }
 
-export class RaumId {
-    id: string
 
-    constructor(id?: string) {
-        this.id = id ? id : uuid();
-    }
+export class RaumId extends GenericValueObject<string> {
 }
 
 
-export class RaumNummer {
-    raumNummer: string;
-
-    constructor(raumNummer: string) {
-        this.raumNummer = raumNummer
-    }
+export class RaumNummer extends GenericValueObject<string> {
 }
 
-export class RaumName {
-    raumName: string;
-
-    constructor(raumName: string) {
-        this.raumName = raumName
-    }
+export class RaumName extends GenericValueObject<string> {
 }

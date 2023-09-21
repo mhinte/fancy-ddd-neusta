@@ -1,8 +1,9 @@
-import { NamensZusatz } from "./enum/NamensZusatz"
-import { v4 as uuid } from 'uuid';
+import {NamensZusatz} from "./enum/NamensZusatz"
+import {v4 as uuid} from 'uuid';
+import {GenericValueObject} from "../common/GenericValueObject";
 
 export class Person {
-    id: PersonenId
+    personenId: PersonenId
     vorname: PersonenVorname
     nachname: PersonenNachname
     namensZusatz?: NamensZusatz
@@ -13,11 +14,11 @@ export class Person {
             throw new Error('Namenszusatz ' + namensZusatz + ' ist nicht erlaubt.')
         }
 
+        this.personenId = new PersonenId(uuid())
         this.vorname = new PersonenVorname(vorname)
         this.nachname = new PersonenNachname(nachname)
-        this.benutzerName = new PersonenBenutzername(benutzerName)
         this.namensZusatz = namensZusatz
-        this.id = new PersonenId(uuid())
+        this.benutzerName = new PersonenBenutzername(benutzerName)
     }
 
     gibKurzbeschreibung(): string {
@@ -25,34 +26,14 @@ export class Person {
     }
 }
 
-export class PersonenId {
-    id: string
-
-    constructor(id: string) {
-        this.id = id;
-    }
+export class PersonenId extends GenericValueObject<string>{
 }
 
-export class PersonenVorname {
-    personenVorname: string;
-
-    constructor(personVorname: string) {
-        this.personenVorname = personVorname
-    }
+export class PersonenVorname extends GenericValueObject<string>{
 }
 
-export class PersonenNachname {
-    personenNachname: string;
-
-    constructor(personNachname: string) {
-        this.personenNachname = personNachname
-    }
+export class PersonenNachname extends GenericValueObject<string> {
 }
 
-export class PersonenBenutzername {
-    personenBenutzername: string;
-
-    constructor(personBenutzername: string) {
-        this.personenBenutzername = personBenutzername
-    }
+export class PersonenBenutzername extends GenericValueObject<string>{
 }
