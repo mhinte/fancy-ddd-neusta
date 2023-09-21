@@ -1,5 +1,6 @@
 import {RaumRepository} from "../../domain/model/RaumRepository";
-import {PersonenId, Raum, RaumId} from "../../domain/model/Raum";
+import {Raum, RaumId} from "../../domain/model/Raum";
+import { PersonenId } from "../../domain/model/Person";
 
 export class PersonZuRaumHinzufuegen {
 

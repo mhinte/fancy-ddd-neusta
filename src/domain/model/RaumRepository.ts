@@ -1,4 +1,5 @@
-import {PersonenId, Raum, RaumId, RaumNummer} from "./Raum";
+import { PersonenId } from "./Person";
+import { Raum, RaumId, RaumNummer } from "./Raum";
 
 export interface RaumRepository {
     finde(id: RaumId): Raum;

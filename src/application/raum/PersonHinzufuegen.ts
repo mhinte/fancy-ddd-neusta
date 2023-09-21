@@ -1,5 +1,5 @@
 import { PersonRepository } from "../../domain/model/PersonRepository";
-import { Person } from "../../domain/model/Person";
+import { Person, PersonenBenutzername } from "../../domain/model/Person";
 
 export class PersonHinzufuegen {
 
@@ -17,7 +17,7 @@ export class PersonHinzufuegen {
         return this.personRepository.legeAn(person)
     }
 
-    private istBenutzerNameEindeutig(benutzerName: string): boolean {
+    private istBenutzerNameEindeutig(benutzerName: PersonenBenutzername): boolean {
         const person: Person = this.personRepository.findeBenutzerName(benutzerName);
         return !person;
     }

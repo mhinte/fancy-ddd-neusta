@@ -1,4 +1,5 @@
 import { v4 as uuid } from 'uuid';
+import { PersonenId } from './Person';
 
 export class Raum {
 
@@ -62,13 +63,5 @@ export class RaumName {
 
     constructor(raumName: string) {
         this.raumName = raumName
-    }
-}
-
-export class PersonenId {
-    id: string
-
-    constructor(id: string) {
-        this.id = id;
     }
 }
