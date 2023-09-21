@@ -1,21 +1,64 @@
 import {v4 as uuid} from 'uuid';
 
+
 export class Raum {
 
-    public id: string;
-    public nummer: string;
-    public name: string;
-    private personenIds: Array<string>;
+    public id: RaumId;
+    public nummer: RaumNummer;
+    public name: RaumName;
+    private personenIds: PersonenIds;
 
     constructor(nummer: string, name: string) {
         if (!this.istNummerGueltig(nummer)) {
             return null
         }
 
-        this.id = uuid()
+        this.id = new RaumId(uuid())
+        this.name = new RaumName(name)
+        this.nummer = new RaumNummer(nummer)
+        this.personenIds = new PersonenIds()
+    }
+
+    private istNummerGueltig(nummer: string): boolean {
+        return nummer.length === 4 && !isNaN(+nummer)
+    }
+}
+
+class RaumId {
+    id: string
+
+    constructor(id: string) {
+        this.id = id;
+    }
+}
+
+
+class RaumNummer {
+    raumNummer: string;
+
+    constructor(raumNummer: string) {
+        this.raumNummer = raumNummer
+    }
+}
+
+class RaumName {
+    raumName: string;
+
+    constructor(raumName: string) {
+        this.raumName = raumName
+    }
+}
+
+class PersonenIds {
+    private personenIds: Array<string>;
+
+    constructor() {
         this.personenIds = []
-        this.name = name
-        this.nummer = nummer
+    }
+
+
+    gibPersonenIds(): string[] {
+        return this.personenIds
     }
 
     fuegePersonHinzu(personId: string) {
@@ -26,15 +69,8 @@ export class Raum {
         return false;
     }
 
-    gibPersonenIds(): string[] {
-        return this.personenIds
-    }
 
     hatPerson(id: string): boolean {
         return this.personenIds.includes(id)
-    }
-
-    private istNummerGueltig(nummer: string): boolean {
-        return nummer.length === 4 && !isNaN(+nummer)
     }
 }
