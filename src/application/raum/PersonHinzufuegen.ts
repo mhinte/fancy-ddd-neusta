@@ -11,12 +11,15 @@ export class PersonHinzufuegen {
     }
 
     ausfuehren(id: string, person: Person): boolean {
-        const istPersonInRaum = this.istInRaum(person.id)
+        const istPersonInRaum: boolean = this.istInRaum(person.id)
         if (istPersonInRaum) {
             throw new Error(`Die Person mit der Id ${person.id} ist bereits in einem Raum.`)
         }
 
         const raum: Raum = this.raumRepository.finde(id)
+        if (!raum) {
+            throw new Error(`Der Raum existiert nicht.`)
+        }
 
         return raum.fuegePersonHinzu(person)
     }
