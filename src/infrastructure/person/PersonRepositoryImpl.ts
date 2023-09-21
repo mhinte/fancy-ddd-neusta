@@ -8,7 +8,7 @@ export class PersonRepositoryImpl implements PersonRepository {
         return personen.find((person: Person) => person.personenId.equals(personenId.value))
     }
     findeBenutzerName(benutzerName: PersonenBenutzername): Person {
-        return personen.find((person: Person): boolean => person.benutzerName.equals(benutzerName))
+        return personen.find((person: Person): boolean => person.benutzerName.equals(benutzerName.value))
     }
 
     legeAn(person: Person): Person {
