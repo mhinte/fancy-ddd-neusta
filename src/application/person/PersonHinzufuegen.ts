@@ -1,5 +1,5 @@
-import { PersonRepository } from "../../domain/model/PersonRepository";
-import { Person, PersonenBenutzername } from "../../domain/model/Person";
+import { PersonRepository } from "../../domain/person/PersonRepository";
+import { Person, PersonenBenutzername } from "../../domain/person/Person";
 
 export class PersonHinzufuegen {
 

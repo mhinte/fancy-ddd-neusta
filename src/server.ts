@@ -6,7 +6,7 @@ const app: express.Application = express();
 app.use(express.json());
 loadContainer(app);
 app.use(loadControllers(
-    'infrastructure/controllers/*.ts',
+    'infrastructure/controller/*.ts',
     {cwd: __dirname}
 ));
 app.listen(3000, () => {

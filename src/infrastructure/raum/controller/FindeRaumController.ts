@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
-import { FindeRaum } from "../../application/raum/FindeRaum";
-import { RaumId } from "../../domain/model/Raum";
-import { GET, route } from "awilix-express";
-import { RaumViewModel } from '../viewmodels/RaumViewModel';
+import {Request, Response} from 'express';
+import {FindeRaum} from "../../../application/raum/FindeRaum";
+import {RaumId} from "../../../domain/raum/Raum";
+import {GET, route} from "awilix-express";
+import {RaumViewModel} from '../viewmodels/RaumViewModel';
 
 @route("/api/room/:id")
 export class FindeRaumController {

@@ -3,10 +3,10 @@ import {scopePerRequest} from "awilix-express";
 import {Application} from "express";
 import {RaumHinzufuegen} from "./application/raum/RaumHinzufuegen";
 import {FindeRaum} from "./application/raum/FindeRaum";
-import {RaumRepositoryImpl} from "./infrastructure/RaumRepositoryImpl";
+import {RaumRepositoryImpl} from "./infrastructure/raum/RaumRepositoryImpl";
 import {PersonHinzufuegen} from "./application/person/PersonHinzufuegen";
-import {PersonZuRaumHinzufuegen} from "./application/raum/PersonZuRaumHinzufuegen";
-import {PersonRepositoryImpl} from "./infrastructure/PersonRepositoryImpl";
+import {PersonZuRaumHinzufuegen} from "./application/common/PersonZuRaumHinzufuegen";
+import {PersonRepositoryImpl} from "./infrastructure/person/PersonRepositoryImpl";
 
 export const loadContainer = (app: Application) => {
     const Container = createContainer({

@@ -1,8 +1,8 @@
 import {Request, Response} from 'express';
 import {PUT, route} from "awilix-express";
-import {PersonZuRaumHinzufuegen} from "../../application/raum/PersonZuRaumHinzufuegen";
-import {RaumId} from "../../domain/model/Raum";
-import { PersonenId } from '../../domain/model/Person';
+import {PersonZuRaumHinzufuegen} from "../../../application/common/PersonZuRaumHinzufuegen";
+import {RaumId} from "../../../domain/raum/Raum";
+import { PersonenId } from '../../../domain/person/Person';
 
 @route("/api/room/:roomId/person/:personId")
 export class PersonHinzufuegenController {

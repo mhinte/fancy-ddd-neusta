@@ -1,4 +1,4 @@
-import { Raum, RaumId, RaumName, RaumNummer } from "../../domain/model/Raum"
+import { Raum, RaumId, RaumName, RaumNummer } from "../../../domain/raum/Raum"
 
 export class RaumViewModel {
     id: RaumId

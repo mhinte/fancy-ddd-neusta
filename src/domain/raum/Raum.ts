@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { PersonenId } from './Person';
+import { PersonenId } from '../person/Person';
 
 export class Raum {
 
@@ -45,6 +45,7 @@ export class RaumId {
     id: string
 
     constructor(id: string) {
+        // todo set uuid
         this.id = id;
     }
 }

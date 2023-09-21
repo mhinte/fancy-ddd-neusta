@@ -1,4 +1,4 @@
-import { PersonenId } from "./Person";
+import { PersonenId } from "../person/Person";
 import { Raum, RaumId, RaumNummer } from "./Raum";
 
 export interface RaumRepository {

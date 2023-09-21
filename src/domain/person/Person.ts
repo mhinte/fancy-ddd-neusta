@@ -1,4 +1,4 @@
-import { NamensZusatz } from "../enum/NamensZusatz"
+import { NamensZusatz } from "./enum/NamensZusatz"
 import { v4 as uuid } from 'uuid';
 
 export class Person {

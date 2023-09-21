@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
-import {RaumHinzufuegen} from "../../application/raum/RaumHinzufuegen";
-import {Raum} from "../../domain/model/Raum";
+import {RaumHinzufuegen} from "../../../application/raum/RaumHinzufuegen";
+import {Raum} from "../../../domain/raum/Raum";
 import {POST, route} from "awilix-express";
 
 @route("/api/room")

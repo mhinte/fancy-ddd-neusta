@@ -1,5 +1,5 @@
-import {Person, PersonenBenutzername, PersonenId} from "../domain/model/Person";
-import { PersonRepository } from "../domain/model/PersonRepository";
+import {Person, PersonenBenutzername, PersonenId} from "../../domain/person/Person";
+import { PersonRepository } from "../../domain/person/PersonRepository";
 
 const personen: Person[] = []
 

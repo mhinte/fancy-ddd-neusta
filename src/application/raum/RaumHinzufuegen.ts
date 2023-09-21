@@ -1,5 +1,5 @@
-import {RaumRepository} from "../../domain/model/RaumRepository";
-import {Raum, RaumNummer} from "../../domain/model/Raum";
+import {RaumRepository} from "../../domain/raum/RaumRepository";
+import {Raum, RaumNummer} from "../../domain/raum/Raum";
 
 export class RaumHinzufuegen {
 

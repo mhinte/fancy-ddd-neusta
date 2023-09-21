@@ -1,7 +1,7 @@
-import { RaumRepository } from "../../domain/model/RaumRepository";
-import { RaumId } from "../../domain/model/Raum";
-import { PersonRepository } from "../../domain/model/PersonRepository";
-import { RaumViewModel } from "../../infrastructure/viewmodels/RaumViewModel";
+import { RaumRepository } from "../../domain/raum/RaumRepository";
+import { RaumId } from "../../domain/raum/Raum";
+import { PersonRepository } from "../../domain/person/PersonRepository";
+import { RaumViewModel } from "../../infrastructure/raum/viewmodels/RaumViewModel";
 
 export class FindeRaum {
     raumRepository: RaumRepository
@@ -20,6 +20,5 @@ export class FindeRaum {
             .map(person => person.gibKurzbeschreibung())
 
         return new RaumViewModel(raum, personenKurzNamen)
-
     }
 }
