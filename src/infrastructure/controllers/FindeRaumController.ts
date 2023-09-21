@@ -3,16 +3,16 @@ import {FindeRaum} from "../../application/raum/FindeRaum";
 import {Raum} from "../../domain/model/Raum";
 import {GET, route} from "awilix-express";
 
-@route("/api/room/:raumNummer")
+@route("/api/room/:id")
 export class FindeRaumController {
     constructor(private findeRaum: FindeRaum) {
     }
 
     @GET()
     public async invoke(req: Request, res: Response): Promise<Response | void> {
-        const raumNummer: string = req.params.raumNummer;
+        const id: string = req.params.id;
 
-        const raum: Raum = this.findeRaum.ausfuehren(raumNummer);
+        const raum: Raum = this.findeRaum.ausfuehren(id);
 
         return res.json(raum).status(201);
     }

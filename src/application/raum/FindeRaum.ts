@@ -9,7 +9,7 @@ export class FindeRaum {
         this.raumRepository = raumRepository
     }
 
-    ausfuehren(raumNummer: string): Raum {
-        return this.raumRepository.finde(raumNummer)
+    ausfuehren(id: string): Raum {
+        return this.raumRepository.finde(id)
     }
 }
