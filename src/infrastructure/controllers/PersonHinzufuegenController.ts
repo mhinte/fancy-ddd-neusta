@@ -10,9 +10,9 @@ export class PersonHinzufuegenController {
 
     @PUT()
     public async invoke(req: Request, res: Response): Promise<Response | void> {
-        const id = req.params.id;
+        const id: string = req.params.id;
 
-        const person: Person = new Person("vorname", "nachname", "vona", null)
+        const person: Person = new Person(req.body.vorname, req.body.nachname, req.body.benutzerName, req.body.namensZusatz)
 
         this.personHinzufuegen.ausfuehren(id, person);
 
