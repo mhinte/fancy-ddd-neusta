@@ -1,5 +1,6 @@
-import {PersonenId, Raum, RaumId, RaumNummer} from "../domain/model/Raum";
+import {Raum, RaumId, RaumNummer} from "../domain/model/Raum";
 import {RaumRepository} from "../domain/model/RaumRepository";
+import {PersonenId} from "../domain/model/Person";
 
 const raeume: Raum[] = []
 

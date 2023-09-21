@@ -1,13 +1,13 @@
-import { Person } from "../domain/model/Person";
+import {Person, PersonenBenutzername, PersonenId} from "../domain/model/Person";
 import { PersonRepository } from "../domain/model/PersonRepository";
 
 const personen: Person[] = []
 
 export class PersonRepositoryImpl implements PersonRepository {
-    finde(id: string): Person {
+    finde(id: PersonenId): Person {
         return personen.find(r => r.id === id)
     }
-    findeBenutzerName(benutzerName: string): Person {
+    findeBenutzerName(benutzerName: PersonenBenutzername): Person {
         return personen.find(r => r.benutzerName === benutzerName)
     }
 

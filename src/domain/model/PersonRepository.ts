@@ -1,7 +1,7 @@
-import { Person, PersonenBenutzername } from "./Person";
+import {Person, PersonenBenutzername, PersonenId} from "./Person";
 
 export interface PersonRepository {
     legeAn(person: Person): Person
-    finde(id: string): Person
+    finde(id: PersonenId): Person
     findeBenutzerName(benutzerName: PersonenBenutzername): Person
 }
