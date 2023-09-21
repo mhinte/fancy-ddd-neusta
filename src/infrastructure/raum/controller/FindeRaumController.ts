@@ -11,9 +11,9 @@ export class FindeRaumController {
 
     @GET()
     public async invoke(req: Request, res: Response): Promise<Response | void> {
-        const id: RaumId = new RaumId(req.params.id);
+        const raumId: RaumId = new RaumId(req.params.id);
 
-        const raumViewModel: RaumViewModel = this.findeRaum.ausfuehren(id);
+        const raumViewModel: RaumViewModel = this.findeRaum.ausfuehren(raumId);
 
         return res.json(raumViewModel).status(201);
     }

@@ -1,4 +1,4 @@
-export class GenericValueObject<T> {
+export class ValueObject<T> {
     value: T;
 
     constructor(value: T) {

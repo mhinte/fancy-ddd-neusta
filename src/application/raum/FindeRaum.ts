@@ -12,8 +12,8 @@ export class FindeRaum {
         this.personRepository = personRepository
     }
 
-    ausfuehren(id: RaumId): RaumViewModel {
-        const raum = this.raumRepository.finde(id)
+    ausfuehren(raumId: RaumId): RaumViewModel {
+        const raum = this.raumRepository.finde(raumId)
 
         const personenKurzNamen = raum.gibPersonenIds()
             .map(personenId => this.personRepository.finde(personenId))

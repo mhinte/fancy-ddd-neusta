@@ -1,6 +1,6 @@
 import {NamensZusatz} from "./enum/NamensZusatz"
 import {v4 as uuid} from 'uuid';
-import {GenericValueObject} from "../common/GenericValueObject";
+import {ValueObject} from "../common/ValueObject";
 
 export class Person {
     personenId: PersonenId
@@ -22,18 +22,18 @@ export class Person {
     }
 
     gibKurzbeschreibung(): string {
-        return `${this.vorname} ${this.namensZusatz || ''} ${this.nachname} (${this.benutzerName})`
+        return `${this.vorname.value} ${this.namensZusatz || ''} ${this.nachname.value} (${this.benutzerName.value})`
     }
 }
 
-export class PersonenId extends GenericValueObject<string>{
+export class PersonenId extends ValueObject<string> {
 }
 
-export class PersonenVorname extends GenericValueObject<string>{
+export class PersonenVorname extends ValueObject<string> {
 }
 
-export class PersonenNachname extends GenericValueObject<string> {
+export class PersonenNachname extends ValueObject<string> {
 }
 
-export class PersonenBenutzername extends GenericValueObject<string>{
+export class PersonenBenutzername extends ValueObject<string> {
 }

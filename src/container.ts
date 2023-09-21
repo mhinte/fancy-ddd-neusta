@@ -21,9 +21,9 @@ export const loadContainer = (app: Application) => {
 
     Container.register({
         raumHinzufuegen: asClass(RaumHinzufuegen).scoped(),
+        findeRaum: asClass(FindeRaum).scoped(),
         personHinzufuegen: asClass(PersonHinzufuegen).scoped(),
-        personZuRaumHinzufuegen: asClass(PersonZuRaumHinzufuegen).scoped(),
-        findeRaum: asClass(FindeRaum).scoped()
+        personZuRaumHinzufuegen: asClass(PersonZuRaumHinzufuegen).scoped()
     })
 
     app.use(scopePerRequest(Container));

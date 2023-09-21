@@ -1,6 +1,6 @@
 import {v4 as uuid} from 'uuid';
 import {PersonenId} from '../person/Person';
-import {GenericValueObject} from "../common/GenericValueObject";
+import {ValueObject} from "../common/ValueObject";
 
 export class Raum {
 
@@ -43,12 +43,12 @@ export class Raum {
 }
 
 
-export class RaumId extends GenericValueObject<string> {
+export class RaumId extends ValueObject<string> {
 }
 
 
-export class RaumNummer extends GenericValueObject<string> {
+export class RaumNummer extends ValueObject<string> {
 }
 
-export class RaumName extends GenericValueObject<string> {
+export class RaumName extends ValueObject<string> {
 }
