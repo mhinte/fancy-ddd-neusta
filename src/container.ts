@@ -7,6 +7,7 @@ import {RaumRepositoryImpl} from "./infrastructure/raum/RaumRepositoryImpl";
 import {PersonHinzufuegen} from "./application/person/PersonHinzufuegen";
 import {PersonZuRaumHinzufuegen} from "./application/common/PersonZuRaumHinzufuegen";
 import {PersonRepositoryImpl} from "./infrastructure/person/PersonRepositoryImpl";
+import {EventRepositoryImpl} from "./infrastructure/common/EventRepositoryImpl";
 
 export const loadContainer = (app: Application) => {
     const Container = createContainer({
@@ -16,7 +17,7 @@ export const loadContainer = (app: Application) => {
     Container.register({
         raumRepository: asClass(RaumRepositoryImpl).scoped(),
         personRepository: asClass(PersonRepositoryImpl).scoped(),
-        eventRepository: asClass(PersonRepositoryImpl).scoped()
+        eventRepository: asClass(EventRepositoryImpl).scoped()
     })
 
     Container.register({

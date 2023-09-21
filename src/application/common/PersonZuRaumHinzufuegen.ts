@@ -34,7 +34,7 @@ export class PersonZuRaumHinzufuegen {
 
         const raumMitPerson = raum.fuegePersonHinzu(personId)
         const event = new PersonWurdeRaumZugeordnetEvent(personId, raumId)
-        // this.eventRepository.senden(event)
+        this.eventRepository.senden(event)
         return raumMitPerson
     }
 }
