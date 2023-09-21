@@ -9,6 +9,10 @@ export class Person {
     benutzerName: PersonenBenutzername
 
     constructor(vorname: string, nachname: string, benutzerName: string, namensZusatz?: NamensZusatz) {
+        if (namensZusatz && !Object.values(NamensZusatz).includes(namensZusatz)) {
+            throw new Error('Namenszusatz ' + namensZusatz + ' ist nicht erlaubt.')
+        }
+
         this.vorname = new PersonenVorname(vorname)
         this.nachname = new PersonenNachname(nachname)
         this.benutzerName = new PersonenBenutzername(benutzerName)
