@@ -1,12 +1,11 @@
 import {v4 as uuid} from 'uuid';
-import {Person} from "./Person";
 
 export class Raum {
 
     public id: string;
     public nummer: string;
     public name: string;
-    private personen: Array<Person>;
+    private personenIds: Array<string>;
 
     constructor(nummer: string, name: string) {
         if (!this.istNummerGueltig(nummer)) {
@@ -14,26 +13,25 @@ export class Raum {
         }
 
         this.id = uuid()
-        this.personen = []
+        this.personenIds = []
         this.name = name
         this.nummer = nummer
     }
 
-    fuegePersonHinzu(person: Person) {
-        if (person !== null) {
-            this.personen.push(person)
+    fuegePersonHinzu(personId: string) {
+        if (personId !== null) {
+            this.personenIds.push(personId)
             return true;
         }
         return false;
     }
 
-    gibPersonen(): string[] {
-        return this.personen.map(person => person.gibKurzbeschreibung())
+    gibPersonenIds(): string[] {
+        return this.personenIds
     }
 
     hatPerson(id: string): boolean {
-        const index: number = this.personen.findIndex((person: Person) => person.id === id);
-        return index > 0;
+        return this.personenIds.includes(id)
     }
 
     private istNummerGueltig(nummer: string): boolean {
