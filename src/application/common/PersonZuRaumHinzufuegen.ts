@@ -2,15 +2,19 @@ import { RaumRepository } from "../../domain/raum/RaumRepository";
 import { Raum, RaumId } from "../../domain/raum/Raum";
 import { Person, PersonenId } from "../../domain/person/Person";
 import { PersonRepository } from "../../domain/person/PersonRepository";
+import { EventRepository } from "../../domain/common/EventRepository";
+import { PersonWurdeRaumZugeordnetEvent } from "../../domain/common/PersonWurdeRaumZugeordnetEvent";
 
 export class PersonZuRaumHinzufuegen {
 
     raumRepository: RaumRepository
     personRepository: PersonRepository
+    eventRepository: EventRepository
 
-    constructor(raumRepository: RaumRepository, personRepository: PersonRepository) {
+    constructor(raumRepository: RaumRepository, personRepository: PersonRepository, eventRepository: EventRepository) {
         this.raumRepository = raumRepository
         this.personRepository = personRepository
+        this.eventRepository = eventRepository
     }
 
     ausfuehren(raumId: RaumId, personId: PersonenId): boolean {
@@ -28,6 +32,9 @@ export class PersonZuRaumHinzufuegen {
             throw new Error(`Die Person mit der Id ${personId} ist bereits in dem Raum ${raum.name}.`)
         }
 
-        return raum.fuegePersonHinzu(personId)
+        const raumMitPerson = raum.fuegePersonHinzu(personId)
+        const event = new PersonWurdeRaumZugeordnetEvent(personId, raumId)
+        this.eventRepository.senden(event)
+        return raumMitPerson
     }
 }
