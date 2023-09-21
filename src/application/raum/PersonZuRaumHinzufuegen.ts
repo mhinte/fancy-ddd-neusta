@@ -1,5 +1,5 @@
-import {RaumRepository} from "../../domain/model/RaumRepository";
-import {Raum, RaumId} from "../../domain/model/Raum";
+import { RaumRepository } from "../../domain/model/RaumRepository";
+import { Raum, RaumId } from "../../domain/model/Raum";
 import { PersonenId } from "../../domain/model/Person";
 
 export class PersonZuRaumHinzufuegen {
@@ -15,7 +15,7 @@ export class PersonZuRaumHinzufuegen {
         if (!raum) {
             throw new Error(`Der Raum existiert nicht.`)
         }
-        if(raum.hatPerson(personId)) {
+        if (raum.hatPerson(personId)) {
 
             throw new Error(`Die Person mit der Id ${personId} ist bereits in dem Raum ${raum.name}.`)
         }

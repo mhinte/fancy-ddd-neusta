@@ -1,16 +1,15 @@
-import {Raum, RaumId, RaumName, RaumNummer} from "../../domain/model/Raum"
-import {PersonenId} from "../../domain/model/Person";
+import { Raum, RaumId, RaumName, RaumNummer } from "../../domain/model/Raum"
 
 export class RaumViewModel {
     id: RaumId
     name: RaumName
     nummer: RaumNummer
-    personen: PersonenId[]
+    personenKurznamen: string[]
 
-    constructor(raum: Raum) {
+    constructor(raum: Raum, personenKurzNamen: string[]) {
         this.id = raum.id
         this.name = raum.name
         this.nummer = raum.nummer
-        this.personen = raum.gibPersonenIds()
+        this.personenKurznamen = personenKurzNamen
     }
 }

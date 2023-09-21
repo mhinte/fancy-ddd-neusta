@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { FindeRaum } from "../../application/raum/FindeRaum";
-import {Raum, RaumId} from "../../domain/model/Raum";
+import { RaumId } from "../../domain/model/Raum";
 import { GET, route } from "awilix-express";
 import { RaumViewModel } from '../viewmodels/RaumViewModel';
 
@@ -13,8 +13,7 @@ export class FindeRaumController {
     public async invoke(req: Request, res: Response): Promise<Response | void> {
         const id: RaumId = new RaumId(req.params.id);
 
-        const raum: Raum = this.findeRaum.ausfuehren(id);
-        const raumViewModel = new RaumViewModel(raum)
+        const raumViewModel: RaumViewModel = this.findeRaum.ausfuehren(id);
 
         return res.json(raumViewModel).status(201);
     }
