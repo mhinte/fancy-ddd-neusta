@@ -15,7 +15,8 @@ export const loadContainer = (app: Application) => {
 
     Container.register({
         raumRepository: asClass(RaumRepositoryImpl).scoped(),
-        personRepository: asClass(PersonRepositoryImpl).scoped()
+        personRepository: asClass(PersonRepositoryImpl).scoped(),
+        eventRepository: asClass(PersonRepositoryImpl).scoped()
     })
 
     Container.register({
